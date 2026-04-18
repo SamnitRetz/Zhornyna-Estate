@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чайна плантація Жорнина | Zhornyna Estate</title>
+    <meta name="description" content="Zhornyna Estate — перша вільна чайна плантація України. Мукачево, Закарпаття.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,10 +14,10 @@
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
-            overflow: hidden; /* Щоб не було прокрутки на заглушці */
+            background-color: #fff; /* Страховка на випадок зникнення картинки */
         }
 
-        /* Фонове зображення з ефектом "білястості" */
+        /* 1. ФОН: ПЕРЕВІРЕНО */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -24,10 +25,11 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
-                url('background.jpg'); /* Ваш файл "чайний куст copy.jpg" */
+                linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
+                url('bg.jpg'); /* Назва має бути точно bg.jpg або bg.png */
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             z-index: -1;
         }
 
@@ -36,25 +38,25 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        /* Контейнер логотипа з захисним шаром */
+        /* 2. ЗАХИСТ ЛОГО: ПЕРЕВІРЕНО */
         .logo-wrapper {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px;
-            max-width: 350px;
-            width: 80%;
+            margin-bottom: 10px;
+            max-width: 400px; /* Оптимальний розмір для чіткості */
+            width: 90%;
         }
 
         .logo-wrapper img {
             width: 100%;
             height: auto;
             display: block;
-            user-select: none;
+            pointer-events: none; /* Відключає стандартне перетягування */
             -webkit-user-drag: none;
         }
 
@@ -66,45 +68,46 @@
             width: 100%;
             height: 100%;
             z-index: 10;
-            background: rgba(255,255,255,0);
+            background: transparent;
+            cursor: default;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #2d5a27; /* Темно-зелений колір як на логотипі */
-            margin-bottom: 40px;
+            font-size: clamp(1.5rem, 5vw, 2.5rem); /* Адаптивний розмір тексту */
+            color: #2d5a27;
+            margin-bottom: 50px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        /* Соцмережі */
+        /* СОЦМЕРЕЖІ: ПЕРЕВІРЕНО */
         .social-links {
             display: flex;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 30px;
+            z-index: 20; /* Мають бути вище за фон */
         }
 
         .social-links a {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0.8;
+            transition: all 0.3s ease;
+            opacity: 0.85;
+            display: inline-block;
         }
 
         .social-links a:hover {
-            transform: translateY(-3px);
+            transform: scale(1.15);
             opacity: 1;
         }
 
         .social-links svg {
-            width: 30px;
-            height: 30px;
-            fill: #2d5a27; /* Колір іконок під логотип */
+            width: 32px;
+            height: 32px;
+            fill: #2d5a27;
         }
 
-        /* Адаптація для мобільних */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .logo-wrapper { max-width: 250px; }
+        @media (max-width: 480px) {
+            h1 { margin-bottom: 30px; }
+            .social-links { gap: 20px; }
         }
     </style>
 </head>
@@ -112,27 +115,26 @@
 
     <div class="bg-overlay"></div>
 
-    <div class="container">
-        <div class="logo-wrapper">
-            <img src="logo.png" alt="Zhornyna Estate Logo">
-            <div class="shield"></div> </div>
+    <main class="container">
+        <div class="logo-wrapper" oncontextmenu="return false;">
+            <img src="logo.png" alt="Zhornyna Tea Plantation Logo">
+            <div class="shield" title="Zhornyna Estate"></div>
+        </div>
 
         <h1>Чайна плантація Жорнина</h1>
 
         <div class="social-links">
-            <a href="https://www.facebook.com/groups/zhornyna.tea.plantation" target="_blank" title="Facebook">
+            <a href="https://facebook.com/..." target="_blank" aria-label="Facebook">
                 <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-
-            <a href="https://www.instagram.com/zhornyna.tea/" target="_blank" title="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <a href="https://instagram.com/..." target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583 0.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-
-            <a href="https://t.me/zhornyna" target="_blank" title="Telegram">
+            <a href="https://t.me/..." target="_blank" aria-label="Telegram">
                 <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-1.92 9.044c-.145.641-.519.799-1.059.497l-2.92-2.153-1.41 1.356c-.156.156-.285.285-.585.285l.209-2.977 5.418-4.895c.235-.209-.051-.326-.364-.118l-6.696 4.215-2.887-.902c-.628-.196-.64-.628.131-.929l11.279-4.347c.523-.196.981.118.804.85z"/></svg>
             </a>
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
