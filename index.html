@@ -4,32 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чайна плантація Жорнина | Zhornyna Estate</title>
-    <meta name="description" content="Zhornyna Estate — перша та едина чайна плантація України. Мукачево, Закарпаття.">
+    <meta name="description" content="Zhornyna Estate — перша та єдина чайна плантація України. Мукачево, Закарпаття.">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        /* Обнулення відступів */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
             background-color: #ffffff;
-            overflow: hidden; /* Заглушка без прокрутки */
+            /* Дозволяємо прокрутку, якщо екран дуже маленький */
+            overflow-y: auto; 
         }
 
-        /* Налаштування фону */
+        /* Ідеальний фон із видимими кущами */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Градієнт став прозорішим (0.65), щоб було видно малюнок */
             background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.8)), url('bg.jpg');
             background-size: cover;
-            background-position: bottom center; /* Кущі чаю будуть внизу екрана */
+            background-position: bottom center; /* Тримаємо кущі внизу */
             background-repeat: no-repeat;
             z-index: -1;
         }
@@ -41,29 +40,27 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
-            padding: 40px 20px;
-            background: transparent;
+            padding: 20px;
         }
 
-        /* Захист логотипа */
+        /* Зменшений логотип для видимості на всіх екранах */
         .logo-wrapper {
             position: relative;
             display: inline-block;
             margin-bottom: 20px;
-            max-width: 400px;
+            max-width: 320px; /* Було 400. Тепер все поміститься на екрані! */
             width: 85%;
-            user-select: none;
         }
 
         .logo-wrapper img {
             width: 100%;
             height: auto;
             display: block;
-            pointer-events: none; /* Не можна перетягнути мишкою */
+            pointer-events: none;
             -webkit-user-drag: none;
         }
 
-        /* Невидимий щит від правої кнопки миші */
+        /* Захист */
         .shield {
             position: absolute;
             top: 0;
@@ -76,15 +73,13 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.6rem, 5vw, 2.8rem);
-            color: #2d5a27; /* Колір під логотип */
-            margin-bottom: 50px;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #2d5a27;
+            margin-bottom: 40px;
             font-weight: 700;
             letter-spacing: 1.2px;
-            text-shadow: 0 0 15px rgba(255,255,255,0.5); /* Покращує читабельність на фоні */
         }
 
-        /* Соцмережі */
         .social-links {
             display: flex;
             gap: 30px;
@@ -108,10 +103,10 @@
             fill: #2d5a27;
         }
 
-        /* Адаптація для мобільних */
         @media (max-width: 480px) {
-            h1 { margin-bottom: 40px; }
-            .social-links { gap: 25px; }
+            h1 { margin-bottom: 30px; }
+            .social-links { gap: 20px; }
+            .logo-wrapper { max-width: 250px; }
         }
     </style>
 </head>
@@ -120,7 +115,6 @@
     <div class="bg-overlay"></div>
 
     <main class="container">
-        
         <div class="logo-wrapper" oncontextmenu="return false;">
             <img src="logo.png" alt="Zhornyna Tea Plantation Logo">
             <div class="shield"></div>
