@@ -1,1 +1,9 @@
-# Zhornyna-Estate
+# Zhornyna Estate - Landing Page
+
+Це сторінка-заглушка проєкту "Чайна плантація Жорнина".
+Домен: https://zhornyna.estate
+
+## Технічна інформація:
+- Розміщено на GitHub Pages.
+- Використано чистий HTML/CSS.
+- Шляхетний дизайн із захистом логотипу.
