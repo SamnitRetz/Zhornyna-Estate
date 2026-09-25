@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чайна плантація Жорнина | Zhornyna Estate</title>
-    <meta name="description" content="Zhornyna Estate — перша та єдина чайна плантація України. Мукачево, Закарпаття.">
+    <meta name="description" content="Zhornyna Estate — перша та єдина чайна плантація України. Мукачево, біля с. Лавки, Закарпаття.">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
@@ -97,12 +97,35 @@
             width: 32px;
             height: 32px;
             fill: #2d5a27;
+        }.top-nav {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 20;
         }
 
+        .top-nav a {
+            text-decoration: none;
+            color: #2d5a27;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .top-nav a:hover {
+            color: #1a3616;
+            transform: translateY(-2px);
+        }
+        
         @media (max-width: 480px) {
+            .top-nav { gap: 15px; margin-bottom: 30px; font-size: 0.95rem; }
             h1 { margin-bottom: 30px; }
             .social-links { gap: 20px; }
             .logo-wrapper { max-width: 250px; }
+            .top-nav { gap: 15px; margin-bottom: 30px; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -111,6 +134,13 @@
     <div class="bg-overlay"></div>
 
     <main class="container">
+        <nav class="top-nav">
+            <a href="#">Page 1</a>
+            <a href="#">Page 2</a>
+            <a href="#">Page 3</a>
+            <a href="#">Page 4</a>
+            <a href="#">HK TEA studio</a>
+        </nav>
         <div class="logo-wrapper" oncontextmenu="return false;">
             <img src="logo.png" alt="Zhornyna Tea Plantation Logo">
             <div class="shield"></div>
